@@ -1,21 +1,52 @@
+<!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+  <link rel="stylesheet" href="main.css" type="text/css">
+
+  </head>
   <body>
     <h1><u>The Quiz</u></h1>
     <h3>The Professor: "Topic is knowledge...ready?"</h3>
     <h4>Click Play Button to Start Quiz</h4>
+
+  <div class='question'>
+    <h1>QUESTIONS</h1>
+  </div>
+
   <div class='container'>
     <div class='correct-container'>     
       <div class='correct'></div>
       <div class='incorrect'></div>
     </div>
-    <div class='question'></div>
+    <p class="start">Press Start to Activate Quiz box</p>
     <div class='choice-container'>
-      <div class='coice-1'></div>
-      <div class='coice-2'></div>
-      <div class='coice-3'></div>
-      <div class='coice-4'></div>
+      <form>
+        <div class='choice-1'>
+          <input type="radio" value="milk"><p>Milk</p>
+        </div>
+        <div class='choice-2'>
+          <input type="radio" value="milk"><p>Milk</p>
+        </div>
+        <div class='choice-3'>
+          <input type="radio" value="milk"><p>Milk</p>
+        </div>
+        <div class='choice-4'>
+          <input type="radio" value="milk"><p>Milk</p>
+        </div>
     </div>
+
   </div>
+  <div class="buttons">
+  <button class='js-start' type="submit">Start</button>
+  </div>
+
+  </form>
   </body>
-</html>s
+ 
+ <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+   <script type="text/javascript" src='app.js'></script>
+
+</html>
