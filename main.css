@@ -74,3 +74,11 @@ p {
     display: inline-block;
 
   }
+
+  .turnGreen {
+    background-color: green;
+  }
+
+  .turnRed {
+    background-color: red;
+  }

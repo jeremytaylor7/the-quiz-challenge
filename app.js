@@ -1,9 +1,10 @@
 
 var quizState = {
     questions:[],
-    answers:[],
-    wrong:[],
-    right:[],
+    correctAnswer:0,
+    incorrectAnswer:1,
+    wrong:0,
+    right:0,
     started: false
 }     
 
@@ -15,21 +16,17 @@ var quizState = {
 
 function checkAnswer(q) {
 
-	var correct = 0;
-	var incorrect = 0;
 
-	if (q) {
+	if (q === quizState.correctAnswer) {
 
-		right++;
-		quizState.right.push(correct);
+		quizState.right++;
+		turnGreen();
 	}
 	else {
-		wrong++
-		quizState.wrong.push(incorrect);
+
+		quizState.wrong++
+		turnRed();
 	}
-
-
-
 }
 
 
@@ -49,9 +46,21 @@ function render() {
 	}
 }
 
-function turnGreen() {};
 
-function turnRed() {};
+
+function turnGreen() {
+
+	$('.correct').addClass('turnGreen');
+
+
+};
+
+function turnRed() {
+
+	$('.incorrect').addClass('turnRed');
+
+};
+
 
 
 //event handlers
@@ -61,14 +70,17 @@ function startHandler(e) {
 	render();
 }
 
-function answerHandler(e) {
-	e.preventDefault();
-}
 $(function() {
 	$('.js-start').click(startHandler);
 	render();
-	$('.btn1, .btn2, .btn3, .btn4').click(answerHandler);
+	$('.btn1, .btn2, .btn3, .btn4').on('click', function(event) {
+		event.preventDefault();
+		id = parseInt($(this).attr('id'));
+		checkAnswer(id);
+
+	});
 })
+
 
 
 
