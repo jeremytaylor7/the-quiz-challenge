@@ -38,10 +38,17 @@ function startHandler(e) {
 	quizState.started = true;
 	render();
 }
+
+function answerHandler(e) {
+	e.preventDefault();
+}
 $(function() {
 	$('.js-start').click(startHandler);
 	render();
+	$('.btn1, .btn2, .btn3, .btn4').click(answerHandler);
 })
+
+
 
 
 //callbacks
