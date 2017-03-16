@@ -2,7 +2,8 @@
 var quizState = {
     questions:[],
     answers:[],
-    results:[],
+    wrong:[],
+    right:[],
     started: false
 }     
 
@@ -12,7 +13,24 @@ var quizState = {
 
 //state management functions/basic functionality
 
+function checkAnswer(q) {
 
+	var correct = 0;
+	var incorrect = 0;
+
+	if (q) {
+
+		right++;
+		quizState.right.push(correct);
+	}
+	else {
+		wrong++
+		quizState.wrong.push(incorrect);
+	}
+
+
+
+}
 
 
 
@@ -30,6 +48,10 @@ function render() {
 		$('.question').hide();
 	}
 }
+
+function turnGreen() {};
+
+function turnRed() {};
 
 
 //event handlers
