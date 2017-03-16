@@ -34,18 +34,9 @@ h1, h3, h4 {
 
 .choice-container {
 
-  display: none;
+  
 }
 
-.choice-1, .choice-2, .choice-3, .choice-4 {
-
-
-  display: block;
-  border: 2px solid black;
-  margin: 20px;
-  padding: 5px;
-  border-radius: 5px;
-}
 
 .start {
   padding-left: 120px;
@@ -63,4 +54,22 @@ p {
   display: inline;
   margin-left: auto;
   margin-right: auto;
+  }
+
+  .choice-1, .choice-2, .choice-3, .choice-4 {
+
+    border: 2px solid black;
+    width: 100px;
+    height: 50px;
+    display: inline-block;
+    margin-left: 20px;
+
+  }
+
+  .btn1, .btn2, .btn3, .btn4 {
+
+    width: 100px;
+    height: 50px;
+    display: inline-block;
+
   }

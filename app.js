@@ -3,7 +3,6 @@ var quizState = {
     questions:[],
     answers:[],
     results:[],
-    progress:[],
     started: false
 }     
 
@@ -20,7 +19,7 @@ var quizState = {
 
 
 //render side
-function render() {
+function renderQuestions() {
 	if(quizState.started) {
 		$('.question').show();
 		$('.js-start').hide();
@@ -35,11 +34,11 @@ function render() {
 function startHandler(e) {
 	e.preventDefault();
 	quizState.started = true;
-	render();
+	renderQuestions();
 }
 $(function() {
 	$('.js-start').click(startHandler);
-	render();
+	renderQuestions();
 })
 
 
