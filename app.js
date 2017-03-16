@@ -19,12 +19,14 @@ var quizState = {
 
 
 //render side
-function renderQuestions() {
+function render() {
 	if(quizState.started) {
 		$('.question').show();
+		$('.choice-container').show();
 		$('.js-start').hide();
 	} else {
 		$('.js-start').show();
+		$('.choice-container').hide();
 		$('.question').hide();
 	}
 }
@@ -34,11 +36,11 @@ function renderQuestions() {
 function startHandler(e) {
 	e.preventDefault();
 	quizState.started = true;
-	renderQuestions();
+	render();
 }
 $(function() {
 	$('.js-start').click(startHandler);
-	renderQuestions();
+	render();
 })
 
 
