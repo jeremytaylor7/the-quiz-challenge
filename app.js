@@ -1,11 +1,7 @@
 
 var quizState = [{
-   questions:[],
-    answers: [{answer: 'a', answered: false},
-              {answer: 'a', answered: false},
-              {answer: 'a', answered: false},
-              {answer: 'a', answered: false},
-              {answer: 'a', answered: false}],
+   	questions:[],
+   	answers: ['a', 'b', 'c', 'd'],
     attempted: false,
     right:0,
     started: false
@@ -18,10 +14,11 @@ var quizState = [{
 
 //state management functions/basic functionality
 
-function checkAnswer(q) {
+function checkAnswer(q, i) {
 
+	var index = i;
 
-	if (q === quizState.answers.answer) {
+	if (q === quizState.answers[index].answer) {
 
 		quizState.right++;
 		turnGreen();
@@ -46,6 +43,11 @@ function render() {
 		$('.choice-container').hide();
 		$('.question').hide();
 	}
+}
+
+function renderAnswerResultss() {
+
+
 }
 
 
