@@ -11,7 +11,7 @@ h1, h3, h4 {
 }
 
 .correct, .incorrect {
-  border: 2px solid black;
+  border: 1px solid black;
   margin: 10px;
   height: 20px;
   width: 20px;
@@ -51,15 +51,22 @@ p {
 }
 
 .buttons{
-  width: 20px;
-  display: inline;
-  margin-left: auto;
-  margin-right: auto;
+  width: 50px;
+  padding-left: 350px;
+  padding-top: 10px;
+
+
   }
 
-  .choice-1, .choice-2, .choice-3, .choice-4 {
+.js-start {
 
-    border: 2px solid black;
+  width: 100px;
+  height: 30px;
+}
+
+  .choice {
+
+    border: 1px solid black;
     width: 100px;
     height: 50px;
     display: inline-block;
@@ -67,7 +74,7 @@ p {
 
   }
 
-  .btn1, .btn2, .btn3, .btn4 {
+  .choice > button {
 
     width: 100px;
     height: 50px;

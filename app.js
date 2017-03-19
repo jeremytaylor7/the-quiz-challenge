@@ -1,12 +1,16 @@
 
-var quizState = {
-    questions:[],
-    correctAnswer:0,
-    incorrectAnswer:1,
-    wrong:0,
+var quizState = [{
+   questions:[],
+    answers: [{answer: 'a', answered: false},
+              {answer: 'a', answered: false},
+              {answer: 'a', answered: false},
+              {answer: 'a', answered: false},
+              {answer: 'a', answered: false}],
+    attempted: false,
     right:0,
     started: false
-}     
+
+}]     
 
 
 
@@ -17,20 +21,18 @@ var quizState = {
 function checkAnswer(q) {
 
 
-	if (q === quizState.correctAnswer) {
+	if (q === quizState.answers.answer) {
 
 		quizState.right++;
 		turnGreen();
 	}
 	else {
 
-		quizState.wrong++
+		
 		turnRed();
 	}
+
 }
-
-
-
 
 
 //render side
@@ -73,10 +75,10 @@ function startHandler(e) {
 $(function() {
 	$('.js-start').click(startHandler);
 	render();
-	$('.btn1, .btn2, .btn3, .btn4').on('click', function(event) {
+	$('.choice > button').on('click', function(event) {
 		event.preventDefault();
-		id = parseInt($(this).attr('id'));
-		checkAnswer(id);
+		value = parseInt($(this).attr('value'));
+		checkAnswer(value);
 
 	});
 })
