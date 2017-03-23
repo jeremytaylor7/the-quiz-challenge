@@ -6,6 +6,11 @@ var quizState = {
    	           'answer4',
    	           'answer5'],
    	correctAnswers: ['a', 'b', 'c', 'd'],
+   	choiceSet1: ['Barack Obama'],
+   	choiceSet2: ['Superman'],
+   	choiceSet3: ['Spongebob'],
+   	choiceSet4: ['Sister Sister'],
+   	choiceSet5: ['Tequila'],
    	started: false,
     right:0,
     incorrect:0,
@@ -74,9 +79,18 @@ function checkAnswer(value) {
 //render side
 function render() {
 	if(quizState.started) {
+
+		var indexQuestion = 0;
+		var indexChoices = 0;
 		$('.question').show();
 		$('.choice-container').show();
 		$('.js-start').hide();
+		renderQuestion(indexQuestion);
+		renderChoices(indexChoices,
+			          indexChoices,
+			          indexChoices,
+			          indexChoices);
+
 	} else {
 		$('.js-start').show();
 		$('.choice-container').hide();
@@ -84,7 +98,31 @@ function render() {
 	}
 }
 
-function renderAnswerResultss() {
+function renderQuestion(q){
+
+	var question = quizState.questions[q];
+
+	$('.questionH1').html(question);
+}
+
+function renderChoices(choice1, choice2, choice3, choice4){
+
+	var choiceIndex1 = quizState.choiceSet1[choice1];
+    var choiceIndex2 = quizState.choiceSet2[choice2];	
+    var choiceIndex3 = quizState.choiceSet3[choice3];
+    var choiceIndex4 = quizState.choiceSet4[choice4];
+
+	$('#1').html(choiceIndex1);
+	$('#2').html(choiceIndex2);
+	$('#3').html(choiceIndex3);
+	$('#4').html(choiceIndex4);
+
+
+
+
+}
+
+function renderAnswerResults() {
 
 
 }
@@ -105,7 +143,7 @@ $(function() {
 	$('.choice > button').on('click', function(event) {
 		event.preventDefault();
 		value = $(this).attr('value');
-		checkAnswer(value);
+		
 
 	});
 })
