@@ -1,6 +1,6 @@
 
 var quizState = {
-   	questions:['answer1',
+   	questions:['Who is the 44th U.S President?',
    	           'answer2',
    	           'answer3',
    	           'answer4',
@@ -70,11 +70,13 @@ function checkAnswer(value) {
 
 		quizState.indexChoice++;
 		quizState.right++;
-		
+		renderThatsCorrect();
+		break;
 	}
 	else if (value !== quizState.correctAnswers[i]){
 
 		quizState.incorrect++
+		renderCorrectAnswer();
 		break;
 	}
 }
@@ -90,7 +92,7 @@ function render() {
 		$('.question').show();
 		$('.choice-container').show();
 		$('.js-start').hide();
-		renderQuestion(indexQuestion);
+		renderQuestion(quizState.questionIndex);
 		renderChoices(quizState.indexChoice,
 					  quizState.indexChoice,
 					  quizState.indexChoice,
@@ -128,7 +130,23 @@ function renderChoices(choice1, choice2, choice3, choice4){
 
 }
 
-function renderAnswerResults() {
+function renderCorrectAnswer() {
+
+	$('.choice-container').hide();
+	$('#incorrect').show()
+	$('#incorrect > h2').html(
+		"That is incorrect, the correct answer is:" + 
+		quizState.correctAnswers[0])
+}
+
+function renderThatsCorrect() {
+
+
+	$('.choice-container').hide();
+	$('#correct').show()
+	$('#correct > h2').html(
+		"That is correct!:");
+
 
 
 }
