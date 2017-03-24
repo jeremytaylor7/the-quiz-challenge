@@ -17,6 +17,7 @@ var quizState = {
     incorrect:0,
     indexChoice: 0
 
+
     
    
 
@@ -24,22 +25,23 @@ var quizState = {
 
 }
 
-/* As a user I would like to see be able to click a start
-   button to see a question displayed that I can answer 
-   by choosing the right answer out of 4 possible choices.
+/* As a user 
+   I want to see a welcome message
+   so that I can see what the quiz is about.
 
-   after choosing the right answer I want the program to
-   check if the answer was right or wrong and then display
-   on the screen if I was right or wrong and show what the
-   correct answer is if I was wrong. After I see the
-   results of my choice I want to be able to move on to
-   the next question and see another question displayed etc.
+   As a user
+   I want to see if my answer was right or wrong.
+   so that I can learn from my mistakes.	
 
-   After I answer the last question I would like to be able
-   to see a screen with my score displayed on the screen and
-   then have the option to play again by clicking on the button
-   which would take me back to start screen.
+   As a user
+   I want to see my score after the quiz.
+   so that I can know how well I did.
 
+   As a user
+   I want the option to play again.
+   So that I can try to do better the next time.
+
+   
 */
 
 
@@ -113,7 +115,7 @@ function renderQuestion(q){
 	$('.questionH1').html(question);
 }
 
-function renderChoices(choice1, choice2, choice3, choice4){
+function renderChoices(){
 
 	var choiceIndex1 = quizState.choiceSet1[choice1];
     var choiceIndex2 = quizState.choiceSet2[choice2];	
