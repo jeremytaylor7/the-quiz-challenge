@@ -5,7 +5,7 @@ var quizState = {
    	           'answer3',
    	           'answer4',
    	           'answer5'],
-   	correctAnswers: ['a', 'b', 'c', 'd'],
+   	correctAnswers: ['Barack Obama', 'b', 'c', 'd'],
    	choiceSet1: ['Barack Obama'],
    	choiceSet2: ['Superman'],
    	choiceSet3: ['Spongebob'],
@@ -13,7 +13,9 @@ var quizState = {
    	choiceSet5: ['Tequila'],
    	started: false,
     right:0,
+    questionIndex:0,
     incorrect:0,
+    indexChoice: 0
 
     
    
@@ -53,7 +55,10 @@ function startQuiz(){
 	quizState.started = true;
 }
 
+function nextQuestion(){
 
+	quizState.questionIndex++;
+}
 
 function checkAnswer(value) {
 
@@ -63,13 +68,14 @@ function checkAnswer(value) {
 	if (value === quizState.correctAnswers[i]) {
 
 
+		quizState.indexChoice++;
 		quizState.right++;
 		
 	}
-	else {
+	else if (value !== quizState.correctAnswers[i]){
 
-		
-		
+		quizState.incorrect++
+		break;
 	}
 }
 
@@ -80,16 +86,16 @@ function checkAnswer(value) {
 function render() {
 	if(quizState.started) {
 
-		var indexQuestion = 0;
-		var indexChoices = 0;
+		
 		$('.question').show();
 		$('.choice-container').show();
 		$('.js-start').hide();
 		renderQuestion(indexQuestion);
-		renderChoices(indexChoices,
-			          indexChoices,
-			          indexChoices,
-			          indexChoices);
+		renderChoices(quizState.indexChoice,
+					  quizState.indexChoice,
+					  quizState.indexChoice,
+					  quizState.indexChoice
+			          );
 
 	} else {
 		$('.js-start').show();
@@ -142,7 +148,9 @@ $(function() {
 	render();
 	$('.choice > button').on('click', function(event) {
 		event.preventDefault();
-		value = $(this).attr('value');
+		value = $(this).html();
+		checkAnswer(value);
+
 		
 
 	});
