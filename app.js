@@ -1,21 +1,17 @@
 
 var quizState = {
-   	questions:['Who is the 44th U.S President?',
-   	           'answer2',
-   	           'answer3',
-   	           'answer4',
-   	           'answer5'],
+   	questions:[
+    {question: 'Who is the 44th President of the U.S?'
+	 choices: ['Donald Trump','Barack Obama','JFK','Beyonce']}]
    	correctAnswers: ['Barack Obama', 'b', 'c', 'd'],
-   	choiceSet1: ['Barack Obama'],
-   	choiceSet2: ['Superman'],
-   	choiceSet3: ['Spongebob'],
-   	choiceSet4: ['Sister Sister'],
-   	choiceSet5: ['Tequila'],
    	started: false,
     right:0,
     questionIndex:0,
     incorrect:0,
     indexChoice: 0
+
+    {question: 'Who is the 44th President of the U.S?'
+	 choices: ['Donald Trump','Barack Obama','JFK','Beyonce']}
 
 
     
@@ -24,6 +20,11 @@ var quizState = {
 
 
 }
+
+var buttonTemplate = 
+        "<button class='choice' id='4'></button>"+                                  
+         
+        
 
 /* As a user 
    I want to see a welcome message
@@ -95,11 +96,7 @@ function render() {
 		$('.choice-container').show();
 		$('.js-start').hide();
 		renderQuestion(quizState.questionIndex);
-		renderChoices(quizState.indexChoice,
-					  quizState.indexChoice,
-					  quizState.indexChoice,
-					  quizState.indexChoice
-			          );
+		renderChoices(quizState.indexChoice);
 
 	} else {
 		$('.js-start').show();
@@ -108,25 +105,21 @@ function render() {
 	}
 }
 
-function renderQuestion(q){
+function renderQuestion(index){
 
-	var question = quizState.questions[q];
+	var question = quizState.questions[index];
 
 	$('.questionH1').html(question);
 }
 
-function renderChoices(){
+function renderChoices(index){
 
-	var choiceIndex1 = quizState.choiceSet1[choice1];
-    var choiceIndex2 = quizState.choiceSet2[choice2];	
-    var choiceIndex3 = quizState.choiceSet3[choice3];
-    var choiceIndex4 = quizState.choiceSet4[choice4];
+	quizState.questions[index].choice.map(function(choice){
 
-	$('#1').html(choiceIndex1);
-	$('#2').html(choiceIndex2);
-	$('#3').html(choiceIndex3);
-	$('#4').html(choiceIndex4);
 
+		$('answer-container').html(buttonTemplate);
+
+	})
 
 
 
