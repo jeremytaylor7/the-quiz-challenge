@@ -1,8 +1,11 @@
 
 var quizState = {
    	questions:[
-    {question: 'Who is the 44th President of the U.S?'
-	 choices: ['Donald Trump','Barack Obama','JFK','Beyonce']}]
+    {
+    	question: 'Who is the 44th President of the U.S?',
+	 	choices: ['Donald Trump','Barack Obama','JFK','Beyonce']
+	} 
+	],
    	correctAnswers: ['Barack Obama', 'b', 'c', 'd'],
    	started: false,
     right:0,
@@ -10,8 +13,6 @@ var quizState = {
     incorrect:0,
     indexChoice: 0
 
-    {question: 'Who is the 44th President of the U.S?'
-	 choices: ['Donald Trump','Barack Obama','JFK','Beyonce']}
 
 
     
@@ -27,8 +28,8 @@ var buttonTemplate =
         
 
 /* As a user 
-   I want to see a welcome message
-   so that I can see what the quiz is about.
+   I want to see a welcome messag
+ ef  so that I can see what the quiz is about.
 
    As a user
    I want to see if my answer was right or wrong.
@@ -118,6 +119,7 @@ function renderChoices(index){
 
 
 		$('answer-container').html(buttonTemplate);
+		$('.choice').html(choice);
 
 	})
 
