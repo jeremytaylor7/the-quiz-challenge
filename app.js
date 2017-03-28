@@ -4,7 +4,23 @@ var quizState = {
     {
     	question: 'Who is the 44th President of the U.S?',
 	 	choices: ['Donald Trump','Barack Obama','JFK','Beyonce']
-	} 
+	}, 
+    {
+    	question: 'How many continents are there?',
+	 	choices: ['1','5','10','7']
+	}, 
+    {
+    	question: 'What color is Spongebob Squarepants?',
+	 	choices: ['blue','yellow','orange','gold']
+	}, 
+    {
+    	question: 'What is the orc capital in World of Warcraft?',
+	 	choices: ['Sacramento','L.A', 'Durotar', 'Orgrimmar']
+	},
+    {
+    	question: 'Who created this Quiz?',
+	 	choices: ['Katie Perry', 'Jeremy', 'Fidel Castro','Bob']
+	}
 	],
    	correctAnswers: ['Barack Obama', 'b', 'c', 'd'],
    	started: false,
@@ -74,13 +90,14 @@ function checkAnswer(value) {
 
 		quizState.indexChoice++;
 		quizState.right++;
-		renderThatsCorrect();
+		return true;
 		break;
 	}
 	else if (value !== quizState.correctAnswers[i]){
 
 		quizState.incorrect++
-		renderCorrectAnswer();
+		return false;
+		
 		break;
 	}
 }
@@ -97,7 +114,25 @@ function render() {
 		$('.choice-container').show();
 		$('.js-start').hide();
 		renderQuestion(quizState.questionIndex);
-		renderChoices(quizState.indexChoice);
+		var renderedChoices = renderChoices(quizState.indexChoice);
+		$('.answer-container').html(renderedChoices);
+		$('.choice').on('click', function(event) {
+		event.preventDefault();
+		value = $(this).html();
+		var trueOrFalse = checkAnswer(value);
+		if (trueOrFalse === true) {
+
+			renderThatsCorrect();
+		}
+		else if (trueOrFalse === false) {
+
+			renderCorrectAnswer();
+		}
+
+		
+
+	});
+
 
 	} else {
 		$('.js-start').show();
@@ -112,16 +147,15 @@ function renderQuestion(index){
 
 	$('.questionH1').html(question);
 }
+function renderChoice(choice){
 
+		return "<button class='choice'>" + choice +
+				"</button>";
+
+	}
 function renderChoices(index){
 
-	quizState.questions[index].choice.map(function(choice){
-
-
-		$('answer-container').html(buttonTemplate);
-		$('.choice').html(choice);
-
-	})
+	return quizState.questions[index].choices.map(renderChoice);
 
 
 
@@ -129,11 +163,14 @@ function renderChoices(index){
 
 function renderCorrectAnswer() {
 
+	
+	
 	$('.choice-container').hide();
 	$('#incorrect').show()
 	$('#incorrect > h2').html(
 		"That is incorrect, the correct answer is:" + 
 		quizState.correctAnswers[0])
+
 }
 
 function renderThatsCorrect() {
@@ -153,7 +190,7 @@ function renderThatsCorrect() {
 
 //event handlers
 function startHandler(e) {
-	e.preventDefault();
+	e.preventDefault( );
 	quizState.started = true;
 	render();
 }
@@ -161,14 +198,7 @@ function startHandler(e) {
 $(function() {
 	$('.js-start').click(startHandler);
 	render();
-	$('.choice > button').on('click', function(event) {
-		event.preventDefault();
-		value = $(this).html();
-		checkAnswer(value);
-
-		
-
-	});
+	
 })
 
 
