@@ -46,6 +46,7 @@ var quizState = {
 	questionIndex: 0,
 	correctIndex: 0,
 	incorrect: 0,
+	answeredTrueorFalse: false
 }
 
 //state management functions/basic functionality
@@ -72,15 +73,13 @@ function checkAnswer(value) {
 
 		if (value === quizState.correctAnswers[i]) {
 
-			quizState.right++;
+
 			return true;
 		}
-		else if (value !== quizState.correctAnswers[i]) {
-
-			quizState.incorrect++;
-			return false;
-		}
 	}
+
+
+	return false;
 
 }
 
@@ -101,7 +100,7 @@ function render() {
 			value = $(this).html();
 			var trueOrFalse = checkAnswer(value);
 			if (trueOrFalse === true) {
-
+				quizState.right++;
 				renderThatsCorrect();
 				$('.js-next').show();
 
@@ -110,6 +109,7 @@ function render() {
 
 				renderCorrectAnswer();
 				$('.js-next').show();
+				quizState.incorrect++;
 
 			}
 

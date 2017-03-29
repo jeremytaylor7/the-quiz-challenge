@@ -1,49 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
   <link rel="stylesheet" href="main.css" type="text/css">
 
-  </head>
-  <body>
-    <h1><u>The Quiz</u></h1>
-    <h3>The Professor: "Topic is knowledge...ready?"</h3>
-    <h4>Click Play Button to Start Quiz</h4>
+</head>
 
-    <div class='question'>
+<body>
+  <h1>
+    <u>The Quiz</u>
+  </h1>
+  <h3>The Professor: "Topic is knowledge...ready?"</h3>
+  <h4>Click Play Button to Start Quiz</h4>
+
+  <div class='question'>
     <h1 class="questionH1"></h1>
-    </div>
+  </div>
 
- <div class='container'>
-    <p class="start"></p>
+  <div class='container'>
+    <p class="start">Welcome To the Quiz! Please Click Start To Begin!</p>
     <div class='choice-container'>
       <form>
         <div class='answer-container'>
-         <button class="choice"  id='1' value="a"></button>
+          <button class="choice" id='1' value="a"></button>
         </div>
     </div>
     <div class="answer_result" id="correct">
-    <h2></h2>
+      <h2></h2>
     </div>
 
     <div class="answer_result" id="incorrect">
-    <h2></h2>
+      <h2></h2>
     </div>
 
   </div>
   <div class="buttons">
-  <button class='js-start' type="submit">Start</button>
-  <button class="js-next" type="submit"> Next Question</button>
+    <button class='js-start' type="submit">Start</button>
+    <button class="js-next" type="submit"> Next Question</button>
 
   </div>
 
   </form>
-  </body>
+</body>
 
- 
- <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
-   <script type="text/javascript" src='app.js'></script>
+<script type="text/javascript" src='app.js'></script>
 
 </html>
