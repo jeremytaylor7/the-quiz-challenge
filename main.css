@@ -1,6 +1,11 @@
 h1, h3, h4 {
   text-align: center;
 }
+
+html{
+
+  background-color: lightseagreen;
+}
 .container {
   width: 550px;
   height: 300px;
@@ -8,19 +13,6 @@ h1, h3, h4 {
   margin-left:auto;
   margin-right:auto;
   border: 2px solid black;
-}
-
-.correct, .incorrect {
-  border: 1px solid black;
-  margin: 10px;
-  height: 20px;
-  width: 20px;
-  display: inline-block;
-  border-radius: 50%;
-  padding:10px;
-  background-color: white;
-  margin-left: 15px;
-  
 }
 
 .correct-container {
@@ -81,6 +73,8 @@ p {
     width: 150px;
     height: 50px;
     display: inline-block;
+    background-color: orangered;
+    font-weight: bold;
 
 
 
@@ -98,15 +92,21 @@ p {
 #correct {
 
   display: none;
+  text-align: center;
+  padding-top: 50px;
 }
 
 #incorrect {
   display: none;
+  text-align: center;
+  padding-top: 50px;
 }
 
 .start{
 
-  font-size: 50px;
+  font-size: 30px;
+  display: block;
+  padding: 0px;
   
 }
 
@@ -128,8 +128,9 @@ width: 100px;
 .results{
 
   display: none;
-  width: 200px;
+  width: 300px;
   height: 100px;
+  padding-left: 130px;
 }
 .js-startOver{
   display: none;

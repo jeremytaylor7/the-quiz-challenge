@@ -92,7 +92,6 @@ function render() {
 		$('.question').show();
 		$('.choice-container').show();
 		$('.js-start').hide();
-		$('.js-next').show();
 		renderQuestion(quizState.questionIndex);
 		var renderedChoices = renderChoices(quizState.questionIndex);
 		$('.answer-container').html(renderedChoices);
