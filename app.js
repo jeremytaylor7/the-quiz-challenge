@@ -44,6 +44,7 @@ var quizState = {
 	started: false,
 	right: 0,
 	questionIndex: 0,
+	correctIndex: 0,
 	incorrect: 0,
 }
 
@@ -68,12 +69,14 @@ function checkAnswer(value) {
 		if (value === quizState.correctAnswers[i]) {
 
 			quizState.right++;
+			quizState.correctIndex++;
 			return true;
 			break;
 		}
 		else if (value !== quizState.correctAnswers[i]) {
 
-			quizState.incorrect++
+			quizState.incorrect++;
+			quizState.correctIndex++;
 			return false;
 
 			break;
@@ -87,7 +90,7 @@ function checkAnswer(value) {
 function render() {
 	if (quizState.started) {
 
-
+		$('#correct, #incorrect').hide();
 		$('.question').show();
 		$('.choice-container').show();
 		$('.js-start').hide();
@@ -154,12 +157,12 @@ function renderChoices(index) {
 function renderCorrectAnswer() {
 
 
-
+	var indexForResults = quizState.correctIndex
 	$('.choice-container').hide();
 	$('#incorrect').show()
 	$('#incorrect > h2').html(
 		"That is incorrect, the correct answer is:" +
-		quizState.correctAnswers[0])
+		quizState.correctAnswers[indexForResults])
 
 }
 
