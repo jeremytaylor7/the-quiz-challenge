@@ -74,14 +74,11 @@ function checkAnswer(value) {
 
 			quizState.right++;
 			return true;
-			break;
 		}
 		else if (value !== quizState.correctAnswers[i]) {
 
 			quizState.incorrect++;
 			return false;
-
-			break;
 		}
 	}
 
@@ -131,10 +128,19 @@ function render() {
 function renderNextQuestion(e) {
 
 	e.preventDefault();
-	nextQuestion();
-	nextCorrectAnswer();
-	render()
 
+	qIndex = quizState.questionIndex
+
+	if (qIndex < 4) {
+		nextQuestion();
+		nextCorrectAnswer();
+		render()
+	}
+
+	else if (qIndex === 4) {
+
+		alert('all done here');
+	}
 }
 
 function renderQuestion(index) {
