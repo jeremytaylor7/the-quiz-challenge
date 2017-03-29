@@ -123,10 +123,14 @@ function render() {
 		if (trueOrFalse === true) {
 
 			renderThatsCorrect();
+			$('.js-next').show();
+
 		}
 		else if (trueOrFalse === false) {
 
 			renderCorrectAnswer();
+			$('.js-next').show();
+
 		}
 
 		
@@ -143,7 +147,7 @@ function render() {
 
 function renderQuestion(index){
 
-	var question = quizState.questions[index];
+	var question = quizState.questions[index].question;
 
 	$('.questionH1').html(question);
 }
