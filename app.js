@@ -40,7 +40,7 @@ var quizState = {
 			choices: ['Katie Perry', 'Jeremy', 'Fidel Castro', 'Bob']
 		}
 	],
-	correctAnswers: ['Barack Obama', 'b', 'c', 'd'],
+	correctAnswers: ['Barack Obama', '7', 'yellow', 'Orgrimmar', 'Jeremy'],
 	started: false,
 	right: 0,
 	questionIndex: 0,
@@ -67,8 +67,6 @@ function checkAnswer(value) {
 
 		if (value === quizState.correctAnswers[i]) {
 
-
-			quizState.indexChoice++;
 			quizState.right++;
 			return true;
 			break;
@@ -94,7 +92,7 @@ function render() {
 		$('.choice-container').show();
 		$('.js-start').hide();
 		renderQuestion(quizState.questionIndex);
-		var renderedChoices = renderChoices(quizState.indexChoice);
+		var renderedChoices = renderChoices(quizState.questionIndex);
 		$('.answer-container').html(renderedChoices);
 		$('.choice').on('click', function (event) {
 			event.preventDefault();
