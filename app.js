@@ -192,9 +192,12 @@ function renderThatsCorrect() {
 function renderResults() {
 
 	var rightAnswers = quizState.right
+	$('#correct, #incorrect').hide();
+	$('.js-next').hide();
+	$('.js-startOver').show();
 	$('.results').show();
 	$('.results > h2').html('Thank you for playing!' + '</br>' +
-		'You have answered' + rightAnswers + '/5 questions correctly!')
+		'You have answered ' + rightAnswers + '/5 questions correctly!')
 }
 
 
