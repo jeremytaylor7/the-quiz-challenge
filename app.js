@@ -87,11 +87,12 @@ function checkAnswer(value) {
 //render side
 function render() {
 	if (quizState.started) {
-
+		$('.start').hide();
 		$('#correct, #incorrect').hide();
 		$('.question').show();
 		$('.choice-container').show();
 		$('.js-start').hide();
+		$('.js-next').show();
 		renderQuestion(quizState.questionIndex);
 		var renderedChoices = renderChoices(quizState.questionIndex);
 		$('.answer-container').html(renderedChoices);
