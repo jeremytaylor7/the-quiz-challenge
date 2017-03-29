@@ -61,6 +61,10 @@ function nextQuestion() {
 	quizState.questionIndex++;
 }
 
+function nextCorrectAnswer() {
+	quizState.correctIndex++;
+}
+
 function checkAnswer(value) {
 
 
@@ -69,14 +73,12 @@ function checkAnswer(value) {
 		if (value === quizState.correctAnswers[i]) {
 
 			quizState.right++;
-			quizState.correctIndex++;
 			return true;
 			break;
 		}
 		else if (value !== quizState.correctAnswers[i]) {
 
 			quizState.incorrect++;
-			quizState.correctIndex++;
 			return false;
 
 			break;
@@ -130,6 +132,7 @@ function renderNextQuestion(e) {
 
 	e.preventDefault();
 	nextQuestion();
+	nextCorrectAnswer();
 	render()
 
 }
