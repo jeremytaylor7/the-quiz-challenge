@@ -54,8 +54,10 @@ p {
 
   width: 100px;
   height: 30px;
-  margin-left: auto;
+  margin-left: 400px;
   margin-right: auto;
+  display: inline-block;
+  
 }
 
   .choice-container {
@@ -75,8 +77,6 @@ p {
     display: inline-block;
     background-color: orangered;
     font-weight: bold;
-
-
 
 
   }
@@ -107,6 +107,7 @@ p {
   font-size: 30px;
   display: block;
   padding: 0px;
+
   
 }
 
@@ -115,6 +116,7 @@ p {
 display: none;
 height: 50px;
 width: 100px;
+margin-left: 400px;
 }
 
 .answer-container{
@@ -134,4 +136,5 @@ width: 100px;
 }
 .js-startOver{
   display: none;
+  margin-left: 400px;
 }
