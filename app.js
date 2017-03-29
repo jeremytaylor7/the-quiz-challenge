@@ -141,6 +141,7 @@ function renderNextQuestion(e) {
 	else if (qIndex === 4) {
 
 		alert('all done here');
+		renderResults();
 	}
 }
 
@@ -186,6 +187,14 @@ function renderThatsCorrect() {
 
 
 
+}
+
+function renderResults() {
+
+	var rightAnswers = quizState.right
+	$('.results').show();
+	$('.results > h2').html('Thank you for playing!' + '</br>' +
+		'You have answered' + rightAnswers + '/5 questions correctly!')
 }
 
 
